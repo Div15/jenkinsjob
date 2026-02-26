@@ -1,4 +1,4 @@
-public class Hello{
+public class firstProgram{
 public static void main(String[] args)
 {
     System.out.println("Hello,This is the first java program.");
