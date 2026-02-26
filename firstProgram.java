@@ -1,6 +1,9 @@
-public class firstProgram{
-public static void main(String[] args)
-{
-    System.out.println("Hello,This is the first java program.");
-}
+public class firstProgram {
+    
+    // Your program begins with a call to main()
+    public static void main(String[] args)
+    {
+        // Prints "Hello, World" to the terminal window.
+        System.out.println("Hello, World");
+    }
 }
