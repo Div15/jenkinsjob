@@ -9,12 +9,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                bat 'firstProgram.java'
+                bat 'javac firstProgram.java'
             }
         }
         stage('Execute') {
             steps {
-                bat 'firstProgram'
+                bat 'java firstProgram'
             }
         }
     }
