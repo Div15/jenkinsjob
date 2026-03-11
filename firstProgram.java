@@ -5,6 +5,6 @@ public class firstProgram {
     {
         // Prints "Hello, World" to the trminal window.
         System.out.println("Hello, Worl");
-        System.out.println("Adding changs.");
+        System.out.println("Adding chans.");
     }
 }
