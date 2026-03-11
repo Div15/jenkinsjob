@@ -4,7 +4,7 @@ public class firstProgram {
     public static void main(String[] args)
     {
         // Prints "Hello, World" to the trminal window.
-        System.out.println("Hell, WorlD");
+        System.out.println("Hell, WrlD");
         System.out.println("Adding chans.");
     }
 }
