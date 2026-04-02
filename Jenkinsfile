@@ -4,17 +4,23 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Div15/jenkinsjob.git'
+                git url:'https://github.com/Div15/jenkinsjob.git',branch:'master'
             }
         }
-        stage('Build') {
+        stage('Build Image') {
             steps {
-                bat 'javac firstProgram.java'
+                bat 'docker build -t mywebsite .'
             }
         }
-        stage('Execute') {
+        stage('Stop Old COntainers') {
             steps {
-                bat 'java firstProgram'
+                bat 'docker stop mycont || exit 0'
+                bat 'docker rm mycont || exit 0'
+            }
+        }
+        stage('Run Image - Containerize') {
+            steps {
+                bat 'docker run -d -p 7000:80 --name mycont mywebsite'
             }
         }
     }
