@@ -2,25 +2,22 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
+
+        stage('Clone Repo') {
             steps {
-                git url:'https://github.com/Div15/jenkinsjob.git',branch:'master'
+                git 'https://github.com/Div15/jenkinsjob.git'
             }
         }
-        stage('Build Image') {
+
+        stage('Build Docker Image') {
             steps {
-                bat 'docker build -t mywebsite .'
+                sh 'docker build -t my-node-app .'
             }
         }
-        stage('Stop Old COntainers') {
+
+        stage('Run Container') {
             steps {
-                bat 'docker stop mycont || exit 0'
-                bat 'docker rm mycont || exit 0'
-            }
-        }
-        stage('Run Image - Containerize') {
-            steps {
-                bat 'docker run -d -p 7000:80 --name mycont mywebsite'
+                sh 'docker run -d -p 3005:3000 my-node-app'
             }
         }
     }
