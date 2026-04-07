@@ -11,19 +11,19 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t my-node-app .'
+                bat 'docker build -t my-html-app .'
             }
         }
 
         stage('Remove Old Container') {
             steps {
-                bat 'docker rm -f my-container || exit 0'
+                bat 'docker rm -f html-container || exit 0'
             }
         }
 
         stage('Run Container') {
             steps {
-                bat 'docker run -d -p 3005:3000 --name my-container my-node-app'
+                bat 'docker run -d -p 8081:80 --name html-container my-html-app'
             }
         }
     }
