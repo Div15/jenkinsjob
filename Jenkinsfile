@@ -15,9 +15,15 @@ pipeline {
             }
         }
 
+        stage('Remove Old Container') {
+            steps {
+                bat 'docker rm -f my-container || exit 0'
+            }
+        }
+
         stage('Run Container') {
             steps {
-                bat 'docker run -d -p 3005:3000 my-node-app'
+                bat 'docker run -d -p 3005:3000 --name my-container my-node-app'
             }
         }
     }
