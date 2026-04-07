@@ -11,13 +11,13 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t my-node-app .'
+                bat 'docker build -t my-node-app .'
             }
         }
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 3005:3000 my-node-app'
+                bat 'docker run -d -p 3005:3000 my-node-app'
             }
         }
     }
